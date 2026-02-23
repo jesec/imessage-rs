@@ -1,0 +1,126 @@
+[package]
+name = "imessage-rs"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+homepage.workspace = true
+readme = "README.md"
+description = "Modular Rust + Swift toolkit and local API server for iMessage, FaceTime, and FindMy on macOS."
+documentation = "https://docs.rs/imessage-rs"
+keywords = ["imessage", "facetime", "findmy", "automation", "macos"]
+categories = ["api-bindings", "command-line-utilities"]
+
+[[bin]]
+name = "imessage-rs"
+path = "src/main.rs"
+
+[dependencies]
+imessage-core = { workspace = true }
+imessage-db = { workspace = true }
+imessage-http = { workspace = true }
+imessage-watcher = { workspace = true }
+imessage-webhooks = { workspace = true }
+imessage-private-api = { workspace = true }
+parking_lot = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+tracing-appender = { workspace = true }
+clap = { workspace = true }
+serde_yaml = { workspace = true }
+anyhow = { workspace = true }
+serde_json = { workspace = true }
+
+[dev-dependencies]
+reqwest = { workspace = true, features = ["json", "blocking", "multipart"] }
+serde_json = { workspace = true }
+home = { workspace = true }
+libc = "0.2"
+
+[workspace]
+resolver = "2"
+members = [
+    "crates/imessage-core",
+    "crates/imessage-db",
+    "crates/imessage-serializers",
+    "crates/imessage-private-api",
+    "crates/imessage-apple",
+    "crates/imessage-http",
+    "crates/imessage-watcher",
+    "crates/imessage-webhooks",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+authors = ["imessage-rs contributors"]
+rust-version = "1.85"
+repository = "https://github.com/jesec/imessage-rs"
+homepage = "https://github.com/jesec/imessage-rs"
+
+[workspace.dependencies]
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+
+# HTTP
+axum = { version = "0.8", features = ["multipart"] }
+tower = "0.5"
+tower-http = { version = "0.6", features = ["cors", "timeout", "limit"] }
+
+# Database
+rusqlite = { version = "0.32", features = ["bundled"] }
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+serde_yaml = "0.9"
+
+# CLI
+clap = { version = "4", features = ["derive"] }
+
+# HTTP client (webhooks)
+reqwest = { version = "0.12", features = ["json"] }
+
+# File watching
+notify = "7"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+tracing-appender = "0.2"
+
+# Date/time
+chrono = { version = "0.4", features = ["serde"] }
+
+# Regex (fancy-regex for look-around support)
+fancy-regex = "0.14"
+
+# Mutex (non-poisoning)
+parking_lot = "0.12"
+
+# Utilities
+uuid = { version = "1", features = ["v4"] }
+mime_guess = "2"
+home = "0.5"
+plist = "1"
+phonenumber = "0.3"
+thiserror = "2"
+anyhow = "1"
+image = { version = "0.25", default-features = false, features = ["jpeg", "png"] }
+blurhash = "0.2"
+chacha20poly1305 = "0.10"
+emojis = "0.8"
+
+# Internal crates
+imessage-core = { path = "crates/imessage-core", version = "0.1.0" }
+imessage-db = { path = "crates/imessage-db", version = "0.1.0" }
+imessage-serializers = { path = "crates/imessage-serializers", version = "0.1.0" }
+imessage-private-api = { path = "crates/imessage-private-api", version = "0.1.0" }
+imessage-apple = { path = "crates/imessage-apple", version = "0.1.0" }
+imessage-http = { path = "crates/imessage-http", version = "0.1.0" }
+imessage-watcher = { path = "crates/imessage-watcher", version = "0.1.0" }
+imessage-webhooks = { path = "crates/imessage-webhooks", version = "0.1.0" }

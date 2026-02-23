@@ -1,0 +1,24 @@
+[package]
+name = "imessage-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+homepage.workspace = true
+readme = "../../README.md"
+description = "Core utilities for imessage-rs: config, date conversion, phone normalization, and typedstream decoding."
+documentation = "https://docs.rs/imessage-core"
+keywords = ["imessage", "macos", "parser", "utilities", "typedstream"]
+categories = ["data-structures", "parser-implementations"]
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+chrono = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+home = { workspace = true }
+fancy-regex = { workspace = true }
+phonenumber = { workspace = true }

@@ -1,0 +1,20 @@
+[package]
+name = "imessage-apple"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+homepage.workspace = true
+readme = "../../README.md"
+description = "AppleScript execution helpers for iMessage actions on macOS."
+documentation = "https://docs.rs/imessage-apple"
+keywords = ["imessage", "applescript", "macos", "automation", "messages"]
+categories = ["api-bindings", "os::macos-apis"]
+
+[dependencies]
+imessage-core = { workspace = true }
+tokio = { workspace = true, features = ["process", "time"] }
+tracing = { workspace = true }
+anyhow = { workspace = true }

@@ -1,0 +1,42 @@
+[package]
+name = "imessage-http"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+homepage.workspace = true
+readme = "../../README.md"
+description = "Axum HTTP API layer and route handlers for imessage-rs."
+documentation = "https://docs.rs/imessage-http"
+keywords = ["imessage", "http", "axum", "macos", "webhooks"]
+categories = ["web-programming::http-server", "api-bindings"]
+
+[dependencies]
+imessage-core = { workspace = true }
+imessage-db = { workspace = true }
+imessage-serializers = { workspace = true }
+imessage-apple = { workspace = true }
+imessage-private-api = { workspace = true }
+imessage-webhooks = { workspace = true }
+axum = { workspace = true, features = ["multipart"] }
+tower-http = { workspace = true }
+tokio = { workspace = true }
+tokio-util = { version = "0.7", features = ["io"] }
+serde = { workspace = true }
+serde_json = { workspace = true }
+parking_lot = { workspace = true }
+tracing = { workspace = true }
+anyhow = { workspace = true }
+home = { workspace = true }
+uuid = { workspace = true }
+base64 = "0.22"
+plist = { workspace = true }
+mime_guess = { workspace = true }
+http-body-util = "0.1"
+if-addrs = "0.13"
+image = { workspace = true }
+blurhash = { workspace = true }
+chacha20poly1305 = { workspace = true }
+emojis = { workspace = true }

@@ -1,0 +1,22 @@
+[package]
+name = "imessage-serializers"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+homepage.workspace = true
+readme = "../../README.md"
+description = "Entity-to-JSON serializers for imessage-rs chat, message, handle, and attachment models."
+documentation = "https://docs.rs/imessage-serializers"
+keywords = ["imessage", "json", "serialization", "macos", "chatdb"]
+categories = ["encoding", "api-bindings"]
+
+[dependencies]
+imessage-core = { workspace = true }
+imessage-db = { workspace = true }
+serde_json = { workspace = true }
+home = { workspace = true }
+plist = { workspace = true }
+tracing = { workspace = true }

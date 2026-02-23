@@ -1,0 +1,25 @@
+[package]
+name = "imessage-watcher"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+homepage.workspace = true
+readme = "../../README.md"
+description = "Filesystem watcher and database pollers for iMessage chat.db change events."
+documentation = "https://docs.rs/imessage-watcher"
+keywords = ["imessage", "watcher", "notify", "macos", "chatdb"]
+categories = ["filesystem", "asynchronous"]
+
+[dependencies]
+imessage-core = { workspace = true }
+imessage-db = { workspace = true }
+imessage-serializers = { workspace = true }
+notify = { workspace = true }
+parking_lot = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+anyhow = { workspace = true }
+serde_json = { workspace = true }

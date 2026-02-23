@@ -1,0 +1,23 @@
+[package]
+name = "imessage-private-api"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+homepage.workspace = true
+readme = "../../README.md"
+description = "Private API transport and Swift helper integration for iMessage, FaceTime, and FindMy."
+documentation = "https://docs.rs/imessage-private-api"
+keywords = ["imessage", "facetime", "findmy", "macos", "private-api"]
+categories = ["api-bindings", "network-programming"]
+
+[dependencies]
+imessage-core = { workspace = true }
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tracing = { workspace = true }
+uuid = { workspace = true }
+anyhow = { workspace = true }
