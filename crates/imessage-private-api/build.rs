@@ -6,16 +6,20 @@ fn main() {
         return;
     }
 
+    let out_dir = std::env::var("OUT_DIR").expect("OUT_DIR not set");
+    let swift_build_dir = format!("{out_dir}/swift-build");
+
     let status = std::process::Command::new("make")
         .arg("-C")
         .arg("swift")
+        .arg(format!("BUILD_DIR={swift_build_dir}"))
+        .arg(format!("OUT_DIR={swift_build_dir}"))
         .status()
         .expect("Failed to run make for imessage-helper dylib. Is Xcode installed?");
 
     assert!(status.success(), "Failed to build imessage-helper.dylib");
 
     // Tell rustc where to find the built dylib for include_bytes!()
-    let manifest_dir = std::env::var("CARGO_MANIFEST_DIR").unwrap();
-    let dylib_path = format!("{manifest_dir}/swift/.build/imessage-helper.dylib");
+    let dylib_path = format!("{swift_build_dir}/imessage-helper.dylib");
     println!("cargo:rustc-env=HELPER_DYLIB_PATH={dylib_path}");
 }
